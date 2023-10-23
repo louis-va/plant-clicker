@@ -1,0 +1,35 @@
+.score {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  padding: 1% 5%;
+  width: max-content;
+  margin: 0 auto;
+  border: 2px dashed var(--text-color-light);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.score::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*backdrop-filter: blur(10px); */
+  /*background-color: var(--white-60); */
+  /* opacity: 0.3; */
+  filter: blur(50px);
+}
+
+.score h2 {
+  display: flex;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  color: var(--text-color);
+  font-size: var(--big-font);
+}

@@ -1,15 +1,31 @@
 @import "./assets/css/reset.css";
 @import "./assets/css/variables.css";
+@import "./assets/css/topbar.css";
+@import "./assets/css/score.css";
+@import "./assets/css/panel.css";
+@import "./assets/css/main.css";
 
 @font-face {
-  font-family: 'Nunito';
-  src: url('./assets/fonts/Nunito-ExtraBold.ttf') format('truetype');
+  font-family: "Nunito";
+  src: url("./assets/fonts/Nunito-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
 }
 
 :root {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 800;
   font-size: 20px;
+}
+
+body {
+  max-height: 100vh;
+  background: var(--bg-gradient);
+  display: grid;
+  grid-template-areas:
+    "nav"
+    "main"
+    "panel";
+  grid-template-rows: 10vh 50vh 40vh;
+  grid-template-columns: 1fr;
 }

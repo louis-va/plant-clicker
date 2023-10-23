@@ -1,0 +1,23 @@
+header {
+  grid-area: nav;
+}
+
+nav {
+  display: flex;
+  background-color: transparent;
+  max-width: 100%;
+  justify-content: space-between;
+  padding: 2% 3%;
+  font-size: var(--top-bar-font-size);
+}
+.top-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: var(--text-color-info);
+}
+.top-button h3,
+h4 {
+  padding-left: 0.4rem;
+}
