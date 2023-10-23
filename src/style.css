@@ -1,3 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "./assets/css/reset.css";
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('./assets/fonts/Nunito-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+:root {
+  --bg-gradient: linear-gradient(180deg, #F7FBC8 0%, #F3F0DC 100%);
+  --bg-color-ground: #4D3717;
+  --text-color: #2D1D07;
+  --text-color-light: #81776A;
+  --text-color-info: #7E7C61;
+  --modal-overlay: #000000b3;
+  --white: #FFFFFF;
+  --white-60: #ffffff99;
+  --yellow: #D29626;
+
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+}
