@@ -1,5 +1,6 @@
 header {
   grid-area: nav;
+  position: relative;
 }
 
 nav {
@@ -16,6 +17,7 @@ nav {
   background-color: transparent;
   border: none;
   color: var(--text-color-info);
+  cursor: pointer;
 }
 .top-button h3,
 h4 {

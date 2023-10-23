@@ -1,0 +1,12 @@
+.modal {
+  display: none;
+  background-color: var(--white);
+  position: absolute;
+  min-height: 40vh;
+  width: 90%;
+  top: 5vh;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 999;
+  border-radius: var(--radius-15);
+}
