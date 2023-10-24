@@ -15,10 +15,10 @@ const builder = new PIXI.Graphics();
 app.stage.addChild(builder);
 
 // Create first branch
-let branch = new Branch(builder, 300, 600);
+let firstBranch = new Branch(builder, 300, 600, -45);
 
 // Rendering loop
 app.ticker.add(() => {
   builder.clear();
-  branch.render();
+  firstBranch.render();
 });
