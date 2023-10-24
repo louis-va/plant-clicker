@@ -5,7 +5,7 @@
 @import "./assets/css/panel.css";
 @import "./assets/css/main.css";
 @import "./assets/css/modal.css";
-
+@import "./assets/css/utilities.css";
 @font-face {
   font-family: "Nunito";
   src: url("./assets/fonts/Nunito-ExtraBold.ttf") format("truetype");
@@ -21,7 +21,7 @@
 
 body {
   max-height: 100vh;
-  background: var(--bg-gradient);
+  background: var(--bg-beige);
   display: grid;
   grid-template-areas:
     "nav"
