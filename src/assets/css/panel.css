@@ -49,14 +49,14 @@
   background-color: var(--white-60);
   min-height: 8vh;
   border-radius: var(--radius-15);
-  border: 3px solid transparent;
+  border: 3px solid var(--bg-color-ground);
   position: relative;
   overflow: hidden;
 }
 .tampon {
   background-color: var(--white);
   position: absolute;
-  width: 100%; /*modif ici  JS */
+  width: 50%; /*modif ici  JS */
   top: 0;
   left: 0;
   min-height: 8vh;
