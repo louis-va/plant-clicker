@@ -7,11 +7,12 @@ const COLOR_GREEN_100 = '0x53621E'
 const COLOR_GREEN_200 = '0x48551E'
 const COLOR_GREEN_300 = '0x374015'
 
-const SEGMENT_MIN_LENGTH = 20
-const SEGMENT_MAX_LENGTH = 40
-const SEGMENT_MAX_WIDTH = 15
-const SEGMENT_MAX_SHIFT = 2
-const GROWTH_STEPS = 10
+const BRANCH_MAX_LENGTH = 23 // Maximum number of segments in a branch
+const SEGMENT_MIN_LENGTH = 20 // Minimum length of a semgent (pixels)
+const SEGMENT_MAX_LENGTH = 40 // Maximum length of a semgent (pixels)
+const SEGMENT_MAX_WIDTH = 15 // Maximum width of a semgent (pixels)
+const SEGMENT_MAX_OFFSET = 2 // Maximum angle offset from previous segment (degrees)
+const GROWTH_STEPS = 10 // Number of rendering loops it takes to draw a segment
 
 export default class Branch {
   constructor(builder, x, y, angle) {
@@ -33,8 +34,8 @@ export default class Branch {
     return Math.floor(Math.random() * (SEGMENT_MAX_LENGTH - SEGMENT_MIN_LENGTH + 1) + SEGMENT_MIN_LENGTH)
   }
 
-  shiftAngle() {
-    this.angle += Math.floor(Math.random() * (SEGMENT_MAX_SHIFT - (-SEGMENT_MAX_SHIFT)) + 1) + (-SEGMENT_MAX_SHIFT)
+  offsetAngle() {
+    this.angle += Math.floor(Math.random() * (SEGMENT_MAX_OFFSET - (-SEGMENT_MAX_OFFSET)) + 1) + (-SEGMENT_MAX_OFFSET)
   }
 
   newSegment(x, y) {
@@ -53,26 +54,22 @@ export default class Branch {
     } 
     else {
       this.newSegment(this.growingSegment.point.x, this.growingSegment.point.y)
-      this.shiftAngle()
+      this.offsetAngle()
     }
   }
 
   render() {
-    if (this.points.length < 25) this.grow()
+    if (this.points.length < BRANCH_MAX_LENGTH) this.grow()
     
     this.builder.moveTo(this.points[0].x, this.points[0].y);
-
     this.points.forEach((point, index) => {
-
       var lineWidth = this.points.length - index + 1
-      
       this.builder.lineStyle({
         width: (lineWidth > SEGMENT_MAX_WIDTH) ? SEGMENT_MAX_WIDTH : lineWidth,
         color: COLOR_PINK,
         join: 'round',
         cap: 'round'
       })
-
       this.builder.lineTo(point.x, point.y);
     })
   }
