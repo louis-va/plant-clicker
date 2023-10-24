@@ -6,7 +6,7 @@ const CANVAS_HEIGHT = 900
 
 // Initialize the PIXI app
 const app = new PIXI.Application({
-  antialias: true,
+  antialias: false,
   width: CANVAS_WIDTH,
   height: CANVAS_HEIGHT,
   backgroundAlpha: 0
