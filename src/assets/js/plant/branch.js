@@ -9,7 +9,8 @@ const COLOR_GREEN_300 = '0x374015'
 
 const SEGMENT_MIN_LENGTH = 20
 const SEGMENT_MAX_LENGTH = 40
-
+const SEGMENT_MAX_WIDTH = 15
+const SEGMENT_MAX_SHIFT = 2
 const GROWTH_STEPS = 10
 
 export default class Branch {
@@ -19,7 +20,7 @@ export default class Branch {
     this.points = []
     this.addPoint(x, y)
     this.growingSegment = {}
-    this.createNewSegment(x, y)
+    this.newSegment(x, y)
   }
 
   addPoint(x, y) {
@@ -32,38 +33,46 @@ export default class Branch {
     return Math.floor(Math.random() * (SEGMENT_MAX_LENGTH - SEGMENT_MIN_LENGTH + 1) + SEGMENT_MIN_LENGTH)
   }
 
-  createNewSegment(x, y) {
+  shiftAngle() {
+    this.angle += Math.floor(Math.random() * (SEGMENT_MAX_SHIFT - (-SEGMENT_MAX_SHIFT)) + 1) + (-SEGMENT_MAX_SHIFT)
+  }
+
+  newSegment(x, y) {
     this.growingSegment.point = this.addPoint(x, y)
     this.growingSegment.maxLength = this.randomSegmentLength()
-    this.growingSegment.step = 0
     this.growingSegment.endX = this.growingSegment.maxLength * Math.sin(this.angle * (Math.PI/180))
     this.growingSegment.endY = this.growingSegment.maxLength * Math.cos(this.angle * (Math.PI/180))
+    this.growingSegment.step = 0
   }
 
   grow() {
-    // Grow current branch segment
     if (this.growingSegment.step < GROWTH_STEPS) {
       this.growingSegment.point.x += this.growingSegment.endX / GROWTH_STEPS
       this.growingSegment.point.y -= this.growingSegment.endY / GROWTH_STEPS
       this.growingSegment.step += 1
     } 
-    // Create a new branch segment
     else {
-      this.createNewSegment(this.growingSegment.point.x, this.growingSegment.point.y)
+      this.newSegment(this.growingSegment.point.x, this.growingSegment.point.y)
+      this.shiftAngle()
     }
   }
 
   render() {
-    if (this.points.length < 7) this.grow()
-
+    if (this.points.length < 25) this.grow()
+    
     this.builder.moveTo(this.points[0].x, this.points[0].y);
+
     this.points.forEach((point, index) => {
+
+      var lineWidth = this.points.length - index + 1
+      
       this.builder.lineStyle({
-        width: this.points.length - index + 1,
+        width: (lineWidth > SEGMENT_MAX_WIDTH) ? SEGMENT_MAX_WIDTH : lineWidth,
         color: COLOR_PINK,
         join: 'round',
         cap: 'round'
       })
+
       this.builder.lineTo(point.x, point.y);
     })
   }
