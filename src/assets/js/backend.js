@@ -9,7 +9,8 @@ Author : SIVIXAY Celestin (Yaeshin)
             score:0,
             bank:0,
             multiplier:1,
-            autoclick:0
+            autoclick:0,
+            boost:false
         };
         localStorage.setItem("user",JSON.stringify(user));
         currentUser=user;
@@ -20,7 +21,7 @@ Author : SIVIXAY Celestin (Yaeshin)
     document.getElementById("autoClickPrice").innerHTML=getAutoClickerPrice();
     document.getElementById("amountMultiplier").innerHTML=currentUser.multiplier;
     document.getElementById("multiplierPrice").innerHTML=getMultiplierPrice();
-    document.getElementById("boostPrice").innerHTML=getBoostPrice(currentUser.multiplier,currentUser.autoclick);
+    document.getElementById("boostPrice").innerHTML=getBoostPrice(currentUser.multiplier);
 
     document.getElementById("plantClicker").addEventListener("click", () => {
         currentUser=setScore(currentUser,getMultiplier());
@@ -30,7 +31,7 @@ Author : SIVIXAY Celestin (Yaeshin)
 
     document.getElementById("purchaseAutoClick").addEventListener("click", () => {
         if(currentUser.bank<getAutoClickerPrice()){
-            alert("You don't have enough points ");
+            alert("You don't have enough points !");
         }else{
             currentUser=setBank(currentUser,-getAutoClickerPrice());
             document.getElementById("bank").innerHTML=currentUser.bank;
@@ -43,19 +44,45 @@ Author : SIVIXAY Celestin (Yaeshin)
 
     document.getElementById("purchaseMultiplier").addEventListener("click", () => {
         if(currentUser.bank<getMultiplierPrice()){
-            alert("You don't have enough points ");
+            alert("You don't have enough points !");
         }else{
             currentUser=setBank(currentUser,-getMultiplierPrice());
             document.getElementById("bank").innerHTML=currentUser.bank;
             currentUser=increaseMultiplier(currentUser);
             document.getElementById("amountMultiplier").innerHTML=currentUser.multiplier;
             document.getElementById("multiplierPrice").innerHTML=getMultiplierPrice();
+            document.getElementById("boostPrice").innerHTML=getBoostPrice(currentUser.multiplier);
+        }
+        
+    });
+
+    document.getElementById("purchaseBoost").addEventListener("click", () => {
+        if(currentUser.bank<getBoostPrice(currentUser.multiplier)){
+            alert("You don't have enough points !");
+        }else if(currentUser.boost){
+            alert("Boost déjà actif !");
+        }else{
+            currentUser=setBank(currentUser,-getBoostPrice(currentUser.multiplier));
+            document.getElementById("bank").innerHTML=currentUser.bank;
+            currentUser=boostON(currentUser);
+            setTimeout(boostOFF,30000);
         }
         
     });
 
     setInterval(autoClick,10000);
 
+    function boostOFF(){
+        currentUser.boost=false;
+        localStorage.setItem("user",JSON.stringify(currentUser));
+    }
+
+    function autoClick(){
+        currentUser=setScore(currentUser,getMultiplier()*getAutoClicker());
+        currentUser=setBank(currentUser,getMultiplier()*getAutoClicker());
+        document.getElementById("bank").innerHTML=JSON.parse(localStorage.getItem("user")).bank;
+        
+    }
 })();
 
 function getScore(){
@@ -63,6 +90,9 @@ function getScore(){
 }
 
 function setScore(user, value){
+    if(user.boost){
+        value=value*3;
+    }
     user.score=user.score+value;
     localStorage.setItem("user",JSON.stringify(user));
     return user;
@@ -74,6 +104,9 @@ function getBank(){
 }
 
 function setBank(user, value){
+    if(user.boost && value>0){
+        value=value*3;
+    }
     user.bank=user.bank+value;
     localStorage.setItem("user",JSON.stringify(user));
     return user;
@@ -95,12 +128,6 @@ function getMultiplierPrice(){
     return 50*Math.pow(2,multiplier);
 }
 
-function autoClick(){
-    setScore(JSON.parse(localStorage.getItem("user")),getMultiplier()*getAutoClicker());
-    setBank(JSON.parse(localStorage.getItem("user")),getMultiplier()*getAutoClicker());
-    document.getElementById("bank").innerHTML=JSON.parse(localStorage.getItem("user")).bank;
-}
-
 function getAutoClicker(){
     return JSON.parse(localStorage.getItem("user")).autoclick;
 }
@@ -117,8 +144,10 @@ function getAutoClickerPrice(){
 }
 
 
-function boost(boolean){
-    
+function boostON(user){
+    user.boost=true;
+    localStorage.setItem("user",JSON.stringify(user));
+    return user;
 }
 
 function getBoostPrice(multiplier){
