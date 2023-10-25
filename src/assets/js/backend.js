@@ -1,19 +1,57 @@
+/*
+Author : SIVIXAY Celestin (Yaeshin)
+*/
+
 (()=>{
     let currentUser = JSON.parse(localStorage.getItem("user"));
-    if(currentUser === null){
+    if(currentUser==null){
         let user = {
             score:0,
             bank:0,
             multiplier:1,
             autoclick:0
-        }
+        };
         localStorage.setItem("user",JSON.stringify(user));
         currentUser=user;
     }
     
+    document.getElementById("bank").innerHTML=currentUser.bank;
+    document.getElementById("amountAutoClick").innerHTML=currentUser.autoclick;
+    document.getElementById("autoClickPrice").innerHTML=getAutoClickerPrice();
+    document.getElementById("amountMultiplier").innerHTML=currentUser.multiplier;
+    document.getElementById("multiplierPrice").innerHTML=getMultiplierPrice();
+    document.getElementById("boostPrice").innerHTML=getBoostPrice(currentUser.multiplier,currentUser.autoclick);
+
     document.getElementById("plantClicker").addEventListener("click", () => {
         currentUser=setScore(currentUser,getMultiplier());
         currentUser=setBank(currentUser,getMultiplier());
+        document.getElementById("bank").innerHTML=currentUser.bank;
+    });
+
+    document.getElementById("purchaseAutoClick").addEventListener("click", () => {
+        if(currentUser.bank<getAutoClickerPrice()){
+            alert("You don't have enough points ");
+        }else{
+            currentUser=setBank(currentUser,-getAutoClickerPrice());
+            document.getElementById("bank").innerHTML=currentUser.bank;
+            currentUser=increaseAutoClicker(currentUser);
+            document.getElementById("amountAutoClick").innerHTML=currentUser.autoclick;
+            document.getElementById("autoClickPrice").innerHTML=getAutoClickerPrice();
+        }
+        
+    });
+
+    document.getElementById("purchaseMultiplier").addEventListener("click", () => {
+        if(currentUser.bank<getMultiplierPrice()){
+            alert("You don't have enough points ");
+        }else{
+            currentUser=setBank(currentUser,-getMultiplierPrice());
+            document.getElementById("bank").innerHTML=currentUser.bank;
+            currentUser=increaseMultiplier(currentUser);
+            document.getElementById("amountMultiplier").innerHTML=currentUser.multiplier;
+            document.getElementById("multiplierPrice").innerHTML=getMultiplierPrice();
+        }
+        
     });
 })();
 
@@ -73,4 +111,8 @@ function getAutoClickerPrice(){
 
 function boost(boolean){
     
+}
+
+function getBoostPrice(multiplier){
+    return Math.round(200*multiplier);
 }
