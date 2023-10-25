@@ -1,0 +1,47 @@
+.modal {
+  display: none;
+  background-color: var(--white);
+  position: absolute;
+  min-height: 40vh;
+  width: 90%;
+  top: 5vh;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 999;
+  border-radius: var(--radius-15);
+  border: var();
+  padding: 2% 5%;
+}
+.modal h2 {
+  position: relative;
+}
+.modal button {
+  position: absolute;
+  top: calc(3% + 0.8vh);
+  right: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.modal ol {
+  padding: 0;
+  padding: 2% 3% 2% 9%;
+}
+
+.modal ol li {
+  padding-bottom: 2vh;
+  font-size: var(--top-bar-font-size);
+  color: var(--text-color-light);
+}
+#cache {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-overlay);
+  opacity: 0.5;
+  display: none;
+  z-index: 4;
+  transition: 0.2s;
+}
