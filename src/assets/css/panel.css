@@ -1,3 +1,16 @@
+/* FOOTER */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* SEPARATOR */
+.separator {
+  height: 15px;
+  background-image: url( '../images/ground-separator.svg' );
+}
+
 /* PANEL */
 .panel {
   min-width: 250px;
@@ -6,8 +19,6 @@
   padding: 1em;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  bottom: 0;
   gap: .5em;
 }
 .panel h2 {
