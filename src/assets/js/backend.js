@@ -53,6 +53,9 @@ Author : SIVIXAY Celestin (Yaeshin)
         }
         
     });
+
+    setInterval(autoClick,10000);
+
 })();
 
 function getScore(){
@@ -92,6 +95,11 @@ function getMultiplierPrice(){
     return 50*Math.pow(2,multiplier);
 }
 
+function autoClick(){
+    setScore(JSON.parse(localStorage.getItem("user")),getMultiplier()*getAutoClicker());
+    setBank(JSON.parse(localStorage.getItem("user")),getMultiplier()*getAutoClicker());
+    document.getElementById("bank").innerHTML=JSON.parse(localStorage.getItem("user")).bank;
+}
 
 function getAutoClicker(){
     return JSON.parse(localStorage.getItem("user")).autoclick;
