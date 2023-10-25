@@ -8,8 +8,9 @@
   </head>
   <body>
     <div id="plant"></div>
-
     <div id="cache"></div>
+
+    <!-- HEADER -->
     <header>
       <nav>
         <!--button pour utiliser aria (accessibilités)-->
@@ -74,8 +75,11 @@
         </ol>
       </article>
     </header>
+    <!-- /HEADER -->
+
+    <!-- MAIN -->
     <main id="plantClicker">
-      <section class="score">
+      <section class="score noselect">
         <figure>
           <h2>
             <img src="./assets/images/Token.svg" alt="token" />
@@ -84,11 +88,16 @@
         </figure>
       </section>
     </main>
+    <!-- /MAIN -->
+
+    <!-- UPGRADES -->
     <section class="panel">
-      <h2>Upgrades</h2>
-      <div class="evolution" id="evolution-auto-clicker">
-        <div class="tampon"></div>
-        <figure id="purchaseAutoClick">
+      <h2 class="noselect">Upgrades</h2>
+
+      <!-- AUTO-CLICKER -->
+      <button class="evolution" id="purchaseAutoClick">
+        <div class="tampon" style="width: 100%" id="tampon-autoclick"></div>
+        <figure>
           <article class="container-score">
             <h3>Auto-clicker</h3>
             <article class="token-score">
@@ -100,10 +109,13 @@
             <p id="amountAutoClick">5</p>
           </figcaption>
         </figure>
-      </div>
-      <div class="evolution">
-        <div class="tampon"></div>
-        <figure id="purchaseMultiplier">
+      </button>
+      <!-- /AUTO-CLICKER -->
+
+      <!-- MULTIPLIER -->
+      <button class="evolution" id="purchaseMultiplier">
+        <div class="tampon" style="width: 100%" id="tampon-multiplier"></div>
+        <figure>
           <article class="container-score">
             <h3>Multiplier</h3>
             <article class="token-score">
@@ -112,13 +124,16 @@
             </article>
           </article>
           <figcaption>
-            <p id="amountMultiplier">1</p>
+            x<span id="amountMultiplier">1</span>
           </figcaption>
         </figure>
-      </div>
-      <div class="evolution">
-        <div class="tampon"></div>
-        <figure id="purchaseBoost">
+      </button>
+      <!-- /MULTIPLIER -->
+
+      <!-- BOOSTER -->
+      <button class="evolution" id="purchaseBoost">
+        <div class="tampon" style="width: 100%" id="tampon-boost"></div>
+        <figure>
           <article class="container-score">
             <h3>Booster</h3>
             <article class="token-score">
@@ -127,16 +142,13 @@
             </article>
           </article>
           <figcaption>
-            <p>2</p>
+            <p></p>
           </figcaption>
         </figure>
-      </div>
-      <!--
-      <section>
-     
-       
-      </section>-->
+      </button>
+      <!-- /BOOSTER -->
     </section>
+    <!-- /UPGRADES -->
 
     <script type="module" src="/main.js"></script>
   </body>

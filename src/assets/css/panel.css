@@ -1,36 +1,54 @@
+/* PANEL */
 .panel {
   min-width: 250px;
   width: 100%;
   background-color: var(--bg-color-ground);
-  padding: 2% 5% 3% 5%;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   position: fixed;
   bottom: 0;
-  gap: 1vh;
+  gap: .5em;
 }
 .panel h2 {
   color: var(--white);
+}
+
+/* BUTTON */
+.evolution {
+  display: flex;
+  background-color: var(--white-60);
+  min-height: 65px;
+  border-radius: var(--radius-15);
+  border: 3px solid var(--bg-color-ground);
+  position: relative;
+  overflow: hidden;
 }
 .evolution figure {
   height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 5%;
+  padding: 0.5em .85em;
   align-items: center;
   width: 100%;
   color: var(--text-color);
   z-index: 2;
   position: absolute;
+  left: 0;
+  top: 0;
 }
 .evolution figure h3 {
+  line-height: var(--panel-h-font-size);
   padding-bottom: 0;
+  padding-top: .2em;
   font-size: var(--panel-h-font-size);
 }
 .evolution figcaption {
   font-size: var(--big-font-light);
 }
+
+/* PRICE */
 .token-score {
   display: flex;
   flex-direction: row nowrap;
@@ -44,23 +62,12 @@
 .token-score img {
   height: 0.87em;
 }
-.evolution {
-  display: flex;
-  background-color: var(--white-60);
-  min-height: 65px;
-  border-radius: var(--radius-15);
-  border: 3px solid var(--bg-color-ground);
-  position: relative;
-  overflow: hidden;
-}
+
+/* TAMPON */
 .tampon {
   background-color: var(--white);
   position: absolute;
-  width: 100%; /*modif ici  JS pour booster */
   top: 0;
   left: 0;
   min-height: 60px;
-}
-.booster {
-  width: 0%;
 }
