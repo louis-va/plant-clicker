@@ -25,8 +25,7 @@ body {
   display: grid;
   grid-template-areas:
     "nav"
-    "main"
-    "panel";
-  grid-template-rows: 10vh 50vh 250px;
+    "main";
+  grid-template-rows: 10vh 90vh;
   grid-template-columns: 1fr;
 }
