@@ -4,8 +4,8 @@
 @import "./assets/css/topbar.css";
 @import "./assets/css/score.css";
 @import "./assets/css/panel.css";
-@import "./assets/css/main.css";
 @import "./assets/css/modal.css";
+@import "./assets/css/helpers.css";
 
 @font-face {
   font-family: "Nunito";
@@ -28,4 +28,8 @@ body {
     "main";
   grid-template-rows: 10vh 90vh;
   grid-template-columns: 1fr;
+}
+
+main {
+  grid-area: main;
 }
