@@ -1,11 +1,18 @@
 :root {
-  --bg-gradient: linear-gradient(180deg, #F7FBC8 0%, #F3F0DC 100%);
-  --bg-color-ground: #4D3717;
-  --text-color: #2D1D07;
-  --text-color-light: #81776A;
-  --text-color-info: #7E7C61;
+  --bg-gradient: linear-gradient(180deg, #f7fbc8 0%, #f3f0dc 100%);
+  --bg-color-ground: #4d3717;
+  --bg-beige: rgba(251, 255, 202, 0.6);
+  --text-color: #2d1d07;
+  --text-color-light: #81776a;
+  --text-color-info: #7e7c61;
   --modal-overlay: #000000b3;
-  --white: #FFFFFF;
+  --white: #ffffff;
   --white-60: #ffffff99;
-  --yellow: #D29626;
+  --yellow: #d29626;
+  --pink: #e000a5;
+  --top-bar-font-size: 0.7rem;
+  --panel-h-font-size: 1rem;
+  --big-font: 5vh;
+  --big-font-light: 4vh;
+  --radius-15: 15px;
 }
