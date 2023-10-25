@@ -74,10 +74,10 @@
         </ol>
       </article>
     </header>
-    <main>
+    <main id="plantClicker">
       <section class="score">
         <figure>
-          <h2><img src="./assets/images/Token.svg" alt="token" />23459</h2>
+          <h2><img src="./assets/images/Token.svg" alt="token"/><div id="bank">0</div></h2>
         </figure>
       </section>
     </main>
@@ -85,31 +85,31 @@
       <h2>Upgrades</h2>
       <div class="evolution" id="evolution-auto-clicker">
         <div class="tampon"></div>
-        <figure>
+        <figure id="purchaseAutoClick">
           <article class="container-score">
             <h3>Auto-clicker</h3>
             <article class="token-score">
               <img src="./assets/images/Token.svg" alt="token" />
-              <p>3.670</p>
+              <p id="autoClickPrice">0</p>
             </article>
           </article>
           <figcaption>
-            <p>5</p>
+            <p id="amountAutoClick">5</p>
           </figcaption>
         </figure>
       </div>
       <div class="evolution">
         <div class="tampon"></div>
-        <figure>
+        <figure id="purchaseMultiplier">
           <article class="container-score">
             <h3>Multiplier</h3>
             <article class="token-score">
               <img src="./assets/images/Token.svg" alt="token" />
-              <p>3.670</p>
+              <p id="multiplierPrice">100</p>
             </article>
           </article>
           <figcaption>
-            <p>2</p>
+            <p id="amountMultiplier">1</p>
           </figcaption>
         </figure>
       </div>
@@ -120,11 +120,11 @@
             <h3>Booster</h3>
             <article class="token-score">
               <img src="./assets/images/Token.svg" alt="token" />
-              <p>3.670</p>
+              <p id="boostPrice">100</p>
             </article>
           </article>
           <figcaption>
-            <p>1</p>
+            <p>BOOOOOOOOOOST</p>
           </figcaption>
         </figure>
       </div>
