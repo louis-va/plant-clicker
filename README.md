@@ -28,7 +28,7 @@ This project involves creating a "Cookie Clicker" game. As a team, we develop a 
 
 - [@Louis Van Aken (Project Manager - Repository Manager - Designer - Front-End Developper)](https://www.github.com/louis-va)
 - [@Matthieu Gravy (Front-End Developper - Readme Maintainer)](https://www.github.com/matthieuGravy)
-- [@Célestin Yaeshin (Back-End Developper)](https://www.github.com/Yaeshin)
+- [@Célestin Sivixay (Back-End Developper)](https://www.github.com/Yaeshin)
 
 <br/>
 
