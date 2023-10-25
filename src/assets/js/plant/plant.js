@@ -22,6 +22,9 @@ let firstBranch = new Branch(builder, CANVAS_WIDTH/2, CANVAS_HEIGHT, 0);
 
 // Rendering loop
 app.ticker.add(() => {
-  builder.clear();
-  firstBranch.render();
+  let stillGrowing = firstBranch.grow();
+  if (stillGrowing) {
+    builder.clear();
+    firstBranch.render();
+  }
 });
