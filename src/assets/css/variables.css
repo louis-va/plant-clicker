@@ -10,9 +10,10 @@
   --white-60: #ffffff99;
   --yellow: #d29626;
   --pink: #e000a5;
-  --top-bar-font-size: 0.7rem;
-  --panel-h-font-size: 1rem;
-  --big-font: 5vh;
-  --big-font-light: 4vh;
+  --top-bar-font-size: 0.9em;
+  --score-panel: 0.7em;
+  --panel-h-font-size: 1em;
+  --big-font: 2em;
+  --big-font-light: 1.2em;
   --radius-15: 15px;
 }
