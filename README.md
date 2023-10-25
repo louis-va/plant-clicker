@@ -12,6 +12,8 @@ This project involves creating a "Cookie Clicker" game. As a team, we develop a 
 
 ## Skills Development
 
+The primary goal of this project is to use pure JavaScript to collaborate effectively within our team. We will face various challenges related to _teamwork_, including _time management_, _resolving Git conflicts_, and _efficient coordination among team members_.
+
 <br/>
 
 ## Tech Stack
