@@ -148,3 +148,7 @@ function boostON(user){
     localStorage.setItem("user",JSON.stringify(user));
     return user;
 }
+
+function getBoostPrice(multiplier){
+    return Math.round(200*multiplier);
+}
