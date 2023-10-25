@@ -1,22 +1,26 @@
 # Plant Clicker
 
+## Demo
+
+> [Plant Clicker](https://louis-va.github.io/plant-clicker/)
+
 ## Projet Description
 
-This project involves creating a "Cookie Clicker" game. As a team, we will use **_HTML_**, **_CSS_**, and **_JavaScript_** to develop a _Cookie Clicker_ with features such as a <u>click counter</u>, <u>multipliers</u>, <u>purchase costs</u>, <u>automatic upgrades</u>, and bonuses. We'll ensure that the player cannot achieve a negative score and enhance the user interface for an appealing look.
+This project involves creating a "Cookie Clicker" game. As a team, we develop a _Cookie Clicker_ with features such as a <u>click counter</u>, <u>multipliers</u>, <u>purchase costs</u>, <u>automatic upgrades</u>, and bonuses. We'll ensure that the player cannot achieve a negative score and enhance the user interface for an appealing look.
 
 <br/>
 
 ## Skills Development
 
-The primary goal of this project is to use pure JavaScript to collaborate effectively within our team. We will face various challenges related to _teamwork_, including _time management_, _resolving Git conflicts_, and _efficient coordination among team members_.
-
 <br/>
 
 ## Tech Stack
 
-**Front-end:** JS, HTML5, CSS
+**Front-End:** JS, HTML5, CSS
 
-**Back-end:** JS
+**Back-End:** JS, JSON
+
+**Development Tools** : Vite, Prettier, ESLint
 
 <br/>
 
@@ -34,18 +38,23 @@ The primary goal of this project is to use pure JavaScript to collaborate effect
 
 <br/>
 
-## Installation with npm
+## How to Use?
+
+Install from `npm` or `yarn`
+
+### Clone Locally
 
 ```bash
-  cd ~
-  git clone git@github.com:louis-va/plant-clicker.git
-  cd plant-clicker
-  npm install
-  npm run dev
+>  cd ~
+>  git clone git@github.com:louis-va/plant-clicker.git
+```
+
+### Install with npm
+
+```bash
+>  cd plant-clicker
+>  npm install
+>  npm run dev
 ```
 
 <br/>
-
-## Demo
-
-[Plant Clicker](https://louis-va.github.io/plant-clicker/)
