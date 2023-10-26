@@ -2,8 +2,8 @@ import * as PIXI from 'pixi.js';
 import Branch from './branch';
 import { getScore } from '../game'
 
-const CANVAS_WIDTH = 600
-const CANVAS_HEIGHT = 900
+const CANVAS_WIDTH = 1000
+const CANVAS_HEIGHT = 2000
 
 // Initialize the PIXI app
 const app = new PIXI.Application({
