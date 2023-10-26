@@ -1,0 +1,19 @@
+main {
+  display: relative;
+}
+
+#clickDisplay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.click {
+  position: absolute;
+  font-size: .85em;
+  color: white;
+  text-shadow: 2px 0 var(--text-color-light), -2px 0 var(--text-color-light), 0 2px var(--text-color-light), 0 -2px var(--text-color-light),
+              2px 1px var(--text-color-light), -2px -1px var(--text-color-light), 2px -1px var(--text-color-light), -2px 1px var(--text-color-light);
+}
