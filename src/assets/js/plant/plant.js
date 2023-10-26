@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 import Branch from './branch';
+import { getScore } from '../game'
 
 const CANVAS_WIDTH = 600
 const CANVAS_HEIGHT = 900
@@ -20,11 +21,19 @@ app.stage.addChild(builder);
 // Create first branch
 let firstBranch = new Branch(builder, CANVAS_WIDTH/2, CANVAS_HEIGHT, 0);
 
+// Grow relative to score
+let previousScore = getScore()
+let score
+
 // Rendering loop
 app.ticker.add(() => {
-  let stillGrowing = firstBranch.grow();
-  if (stillGrowing) {
+
+  score = getScore()
+  if (score > previousScore * 1.02) {
+    firstBranch.grow();
     builder.clear();
     firstBranch.render();
+    console.log(score)
+    previousScore = score
   }
 });

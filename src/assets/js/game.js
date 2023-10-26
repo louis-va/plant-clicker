@@ -95,7 +95,7 @@ function autoClick() {
     updateUI();
 }
 
-// Incrementors
+// Increment
 function increaseAutoClicker(user) {
     user.autoclick++;
     localStorage.setItem("user", JSON.stringify(user));
@@ -108,7 +108,7 @@ function increaseMultiplier(user) {
     return user;
 }
 
-// Setters
+// Set value
 function setScore(user, value){
     if(user.boost){
         value=value*3;
@@ -127,26 +127,10 @@ function setBank(user, value){
     return user;
 }
 
-// Getters
-function getScore() {
-    return JSON.parse(localStorage.getItem("user")).score;
-}
-
-function getBank() {
-    return JSON.parse(localStorage.getItem("user")).bank;
-}
-
-function getMultiplier() {
-    return JSON.parse(localStorage.getItem("user")).multiplier;
-}
-  
+// Get price
 function getMultiplierPrice() {
     let multiplier = JSON.parse(localStorage.getItem("user")).multiplier;
     return 50 * Math.pow(2, multiplier);
-}
-
-function getAutoClicker(){
-    return JSON.parse(localStorage.getItem("user")).autoclick;
 }
 
 function getAutoClickerPrice() {
@@ -155,5 +139,22 @@ function getAutoClickerPrice() {
 }
 
 function getBoostPrice(multiplier){
-    return Math.round(200*multiplier);
+    return Math.round(100*multiplier);
+}
+
+// Get value
+export function getScore() {
+    return JSON.parse(localStorage.getItem("user")).score;
+}
+
+export function getBank() {
+    return JSON.parse(localStorage.getItem("user")).bank;
+}
+
+export function getMultiplier() {
+    return JSON.parse(localStorage.getItem("user")).multiplier;
+}
+
+export function getAutoClicker(){
+    return JSON.parse(localStorage.getItem("user")).autoclick;
 }

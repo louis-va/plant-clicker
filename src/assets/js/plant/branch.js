@@ -6,12 +6,12 @@ const COLOR_GREEN_100 = '0x53621E'
 const COLOR_GREEN_200 = '0x48551E'
 const COLOR_GREEN_300 = '0x374015'
 
-const MAX_LENGTH = 28 // Maximum number of segments in a branch
+const MAX_LENGTH = 50 // Maximum number of segments in a branch
 const SEGMENT_MIN_LENGTH = 15 // Minimum length of a semgent (pixels)
 const SEGMENT_MAX_LENGTH = 30  // Maximum length of a semgent (pixels)
 const SEGMENT_MAX_WIDTH = 15 // Maximum width of a semgent (pixels)
 const SEGMENT_MAX_OFFSET = 5 // Maximum angle offset from previous segment (degrees)
-const GROWTH_STEPS = 50 // Number of rendering loops it takes to draw a segment
+const GROWTH_STEPS = 10 // Number of rendering loops it takes to draw a segment
 const BRANCH_APPEARANCE = 7 // Number of segments between new branches
 const BRANCH_MIN_ANGLE = 15 // Minimum angle at which a branch will grow on its parent branch (degrees)
 const BRANCH_MAX_ANGLE = 35 // Maximum angle at which a branch will grow on its parent branch (degrees)
