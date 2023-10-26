@@ -1,6 +1,4 @@
-/*
-Author : SIVIXAY Celestin (Yaeshin)
-*/
+import Click from './click';
 
 // Retrieve user data from localStorage or create a new user if not exists
 let currentUser = JSON.parse(localStorage.getItem("user"));
@@ -20,9 +18,10 @@ if (currentUser == null) {
 updateUI();
 
 // Event listener for clicking on the plant
-document.getElementById("plantClicker").addEventListener("click", () => {
+document.getElementById("plantClicker").addEventListener("click", (event) => {
     currentUser = setScore(currentUser, getMultiplier());
     currentUser = setBank(currentUser, getMultiplier());
+    new Click(getMultiplier(), event.clientX, event.clientY)
     updateUI();
 });
 

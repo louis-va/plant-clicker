@@ -33,7 +33,6 @@ app.ticker.add(() => {
     firstBranch.grow();
     builder.clear();
     firstBranch.render();
-    console.log(score)
     previousScore = score
   }
 });
