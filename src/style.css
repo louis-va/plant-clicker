@@ -23,10 +23,5 @@
 
 body {
   background: var(--bg-gradient);
-  display: grid;
-  grid-template-areas:
-    "nav"
-    "main";
-  grid-template-rows: 10vh 90vh;
-  grid-template-columns: 1fr;
+  overflow: hidden;
 }

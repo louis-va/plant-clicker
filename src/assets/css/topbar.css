@@ -1,6 +1,6 @@
 header {
-  grid-area: nav;
   position: relative;
+  z-index: 5;
 }
 
 nav {
