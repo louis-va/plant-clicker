@@ -3,38 +3,48 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: var(--bg-color-ground);
 }
-
+.container-separator {
+  position: relative;
+  height: 0px;
+}
 /* SEPARATOR */
 .separator {
+  position: absolute;
+  width: 100%;
+  top: -15px;
+  left: 0;
   height: 15px;
   background-image: url("../images/ground-separator.svg");
 }
-
 /* PANEL */
 .panel {
   min-width: 250px;
   width: 100%;
-  background-color: var(--bg-color-ground);
   padding: 1em;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  margin: auto;
+  max-width: 450px;
 }
+
 .panel h2 {
   color: var(--white);
 }
 
 /* BUTTON */
 .evolution {
-  display: flex;
   background-color: var(--white-60);
   min-height: 65px;
   border-radius: var(--radius-15);
   border: 3px solid var(--bg-color-ground);
   position: relative;
   overflow: hidden;
+  max-width: 400px;
 }
+
 .evolution figure {
   height: 100%;
   display: flex;
@@ -107,4 +117,15 @@ footer {
 .to-cligno {
   animation: 1s ease-in-out infinite reverse both running clignot;
   animation-delay: 20s;
+}
+@media screen and (min-width: 901px) {
+  /*landscape tabs, mini laptops */
+  .panel {
+    max-width: 900px;
+    flex-direction: row;
+    align-items: center;
+  }
+  .evolution {
+    flex: 1;
+  }
 }
