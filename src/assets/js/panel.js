@@ -1,3 +1,5 @@
+import { getBoost } from "./game";
+
 function fullPourcent(el) {
   el.style.width = "100%";
 }
@@ -18,7 +20,6 @@ const tamponBooster = document.getElementById("tampon-boost");
 const buttonBoost = document.getElementById("purchaseBoost");
 const cligno = "to-cligno";
 const toCent = "to-cent";
-let boosterUnlocked = false;
 // Fonction pour gérer les mutations du DOM
 function handleDOMMutation(mutationsList, observer) {
   const currentValueBank = parseInt(bankElement.textContent);
@@ -31,6 +32,7 @@ function handleDOMMutation(mutationsList, observer) {
   const currentValueBooster = parseInt(
     document.getElementById("boostPrice").textContent
   );
+  const boosted=getBoost();
   if (currentValueAutoClickPrice <= currentValueBank) {
     fullPourcent(tamponAutoclicker);
   } else {
@@ -41,12 +43,11 @@ function handleDOMMutation(mutationsList, observer) {
   } else {
     zeroPourcent(tamponMultiplier);
   }
-  if (currentValueBooster <= currentValueBank) {
-    fullPourcent(tamponBooster);
-    boosterUnlocked = true;
-  } else if (boosterUnlocked === true) {
+  if (boosted===true) {
     zeroPourcent(tamponBooster);
     addClass(tamponBooster, toCent);
+  } else if (currentValueBooster <= currentValueBank) {
+    fullPourcent(tamponBooster);
   } else {
     zeroPourcent(tamponBooster);
   }

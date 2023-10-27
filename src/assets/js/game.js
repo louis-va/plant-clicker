@@ -35,7 +35,9 @@ document.getElementById("purchaseBoost").addEventListener("click", () => {
 
 // Handle purchases
 function handlePurchase(price, type) {
-    if (currentUser.bank < price) {
+    if(type=="boost" && currentUser.boost){
+        alert("Already boosted !");
+    }else if (currentUser.bank < price) {
         alert("You don't have enough points!");
     } else {
         currentUser = setBank(currentUser, -price);
@@ -187,4 +189,8 @@ export function getMultiplier() {
 
 export function getAutoClicker(){
     return JSON.parse(localStorage.getItem("user")).autoclick;
+}
+
+export function getBoost(){
+    return JSON.parse(localStorage.getItem("user")).boost;
 }
