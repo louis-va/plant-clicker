@@ -21,7 +21,7 @@ updateUI();
 document.getElementById("plantClicker").addEventListener("click", (event) => {
     currentUser = setScore(currentUser, getMultiplier());
     currentUser = setBank(currentUser, getMultiplier());
-    new Click(getMultiplier(), event.clientX, event.clientY)
+    new Click(getMultiplier(), event.clientX, event.clientY, currentUser.boost)
     updateUI();
 });
 

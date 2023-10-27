@@ -112,6 +112,6 @@ footer {
   }
 }
 .to-cligno {
-  animation: 1s ease-in-out infinite reverse both running clignot;
+  animation: 1s linear infinite reverse both running clignot;
   animation-delay: 20s;
 }
