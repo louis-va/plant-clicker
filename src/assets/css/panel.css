@@ -8,7 +8,7 @@ footer {
 /* SEPARATOR */
 .separator {
   height: 15px;
-  background-image: url( '../images/ground-separator.svg' );
+  background-image: url("../images/ground-separator.svg");
 }
 
 /* PANEL */
@@ -19,7 +19,7 @@ footer {
   padding: 1em;
   display: flex;
   flex-direction: column;
-  gap: .5em;
+  gap: 0.5em;
 }
 .panel h2 {
   color: var(--white);
@@ -40,7 +40,7 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0.5em .85em;
+  padding: 0.5em 0.85em;
   align-items: center;
   width: 100%;
   color: var(--text-color);
@@ -52,7 +52,7 @@ footer {
 .evolution figure h3 {
   line-height: var(--panel-h-font-size);
   padding-bottom: 0;
-  padding-top: .2em;
+  padding-top: 0.2em;
   font-size: var(--panel-h-font-size);
 }
 .evolution figcaption {
@@ -81,4 +81,30 @@ footer {
   top: 0;
   left: 0;
   min-height: 60px;
+}
+
+@keyframes tocent {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.to-cent {
+  animation-name: tocent;
+  animation-duration: 30s;
+}
+
+@keyframes clignot {
+  from {
+    border: 3px solid var(--pink);
+  }
+  to {
+    border: 3px solid var(--bg-color-ground);
+  }
+}
+.to-cligno {
+  animation: 1s ease-in-out infinite reverse both running clignot;
+  animation-delay: 20s;
 }
