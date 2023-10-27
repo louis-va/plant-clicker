@@ -6,10 +6,13 @@ const croixStats = document.getElementById("croix-stats");
 const cache = document.getElementById("cache");
 const stat = document.getElementById("stat");
 
-function togle(el) {
+function togle(el, rival) {
   if (el.style.display === "none" || el.style.display === "") {
     el.style.display = "block";
     cache.style.display = "block";
+    if (rival) {
+      rival.style.display = "none";
+    }
   } else {
     el.style.display = "none";
     cache.style.display = "none";
@@ -17,7 +20,7 @@ function togle(el) {
 }
 
 buttonRules.addEventListener("click", () => {
-  togle(articleModal);
+  togle(articleModal, stat);
 });
 
 croixRules.addEventListener("click", () => {
@@ -25,7 +28,7 @@ croixRules.addEventListener("click", () => {
 });
 
 buttonStats.addEventListener("click", () => {
-  togle(stat);
+  togle(stat, articleModal);
 });
 croixStats.addEventListener("click", () => {
   togle(stat);
