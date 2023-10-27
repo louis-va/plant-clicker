@@ -55,11 +55,3 @@ table {
 table td:nth-child(2) {
   text-align: end;
 }
-@media screen and (min-width: 901px) {
-  /*landscape tabs, mini laptops */
-  .modal,
-  .stats {
-    max-width: 500px;
-    padding: 1% 2.5%;
-  }
-}
