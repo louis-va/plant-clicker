@@ -26,6 +26,7 @@
   background-color: transparent;
   border: none;
 }
+table,
 .modal ol {
   padding: 0;
   padding: 2% 3% 2% 9%;
@@ -50,7 +51,9 @@
 }
 table {
   width: 100%;
+  font-size: var(--top-bar-font-size);
+  color: var(--text-color-light);
 }
 table td:nth-child(2) {
-  text-align: center;
+  text-align: end;
 }
