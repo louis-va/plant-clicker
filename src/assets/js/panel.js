@@ -48,6 +48,7 @@ function handleDOMMutation(mutationsList, observer) {
     addClass(tamponBooster, toCent);
   } else if (currentValueBooster <= currentValueBank) {
     fullPourcent(tamponBooster);
+    delClass(tamponBooster,toCent);
   } else {
     zeroPourcent(tamponBooster);
   }
