@@ -35,14 +35,14 @@ table,
   color: var(--text-color-light);
 }
 
-#resesetButton {
+#resetButton {
   background-color: transparent;
   border: 3px solid transparent;
   border-radius: var(--radius-15);
   padding: 0.2em 0.5em;
   margin: 0.5rem 0.9rem;
 }
-#resesetButton:hover {
+#resetButton:hover {
   color: var(--white);
   background-color: var(--text-color);
   transition: 0.2s;
