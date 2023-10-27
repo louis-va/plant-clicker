@@ -3,15 +3,7 @@ import Click from './click';
 // Retrieve user data from localStorage or create a new user if not exists
 let currentUser = JSON.parse(localStorage.getItem("user"));
 if (currentUser == null) {
-    let user = {
-        score: 0,
-        bank: 0,
-        multiplier: 1,
-        autoclick: 0,
-        boost: false
-    };
-    localStorage.setItem("user", JSON.stringify(user));
-    currentUser = user;
+    currentUser = newUser();
 }
 
 // Update HTML elements with initial user data
@@ -19,8 +11,9 @@ updateUI();
 
 // Event listener for clicking on the plant
 document.getElementById("plantClicker").addEventListener("click", (event) => {
-    currentUser = setScore(currentUser, getMultiplier());
+    currentUser = setScore(currentUser, getMultiplier(), false);
     currentUser = setBank(currentUser, getMultiplier());
+    currentUser = increaseClicks(currentUser);
     new Click(getMultiplier(), event.clientX, event.clientY)
     updateUI();
 });
@@ -70,11 +63,38 @@ function updateUI() {
     document.getElementById("amountMultiplier").innerHTML = currentUser.multiplier;
     document.getElementById("multiplierPrice").innerHTML = getMultiplierPrice();
     document.getElementById("boostPrice").innerHTML = getBoostPrice(currentUser.multiplier);
+    updateStats();
 }
 
+function updateStats(){
+    document.getElementById("scoreTotal").innerHTML=currentUser.score;
+    document.getElementById("startDate").innerHTML=currentUser.startDate;
+    document.getElementById("nbClick").innerHTML=currentUser.nbrClick;
+    document.getElementById("scoreClick").innerHTML=currentUser.scrClick;
+    document.getElementById("scoreAuto").innerHTML=currentUser.scrAuto;
+    document.getElementById("nbBoost").innerHTML=currentUser.nbrBoost;
+}
+// Create a new user and stock it in localStorage
+function newUser(){
+    let user = {
+        score: 0,
+        bank: 0,
+        multiplier: 1,
+        autoclick: 0,
+        boost: false,
+        startDate: new Date(),
+        nbrClick: 0,
+        scrClick: 0,
+        scrAuto: 0,
+        nbrBoost: 0
+    };
+    localStorage.setItem("user", JSON.stringify(user));
+    return user;
+}
 // Booster
 function boostON(user){
     user.boost=true;
+    user.nbrBoost++;
     localStorage.setItem("user",JSON.stringify(user));
     return user;
 }
@@ -86,10 +106,10 @@ function boostOFF() {
 }
 
 // Autoclicker
-setInterval(autoClick, 1000);
+setInterval(autoClick, 10000);
 
 function autoClick() {
-    currentUser = setScore(currentUser, getMultiplier() * getAutoClicker());
+    currentUser = setScore(currentUser, getMultiplier() * getAutoClicker(), true);
     currentUser = setBank(currentUser, getMultiplier() * getAutoClicker());
     updateUI();
 }
@@ -107,21 +127,32 @@ function increaseMultiplier(user) {
     return user;
 }
 
+function increaseClicks(user){
+    user.nbrClick++;
+    localStorage.setItem("user", JSON.stringify(user));
+    return user;
+}
+
 // Set value
-function setScore(user, value){
+function setScore(user, value, auto){
     if(user.boost){
-        value=value*3;
+        value*=3;
     }
-    user.score=user.score+value;
+    if(auto){
+        user.scrAuto+=value;
+    }else{
+        user.scrClick+=value;
+    }
+    user.score+=value;
     localStorage.setItem("user",JSON.stringify(user));
     return user;
 }
 
 function setBank(user, value){
     if(user.boost && value>0){
-        value=value*3;
+        value*=3;
     }
-    user.bank=user.bank+value;
+    user.bank+=value;
     localStorage.setItem("user",JSON.stringify(user));
     return user;
 }
