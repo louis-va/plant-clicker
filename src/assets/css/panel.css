@@ -3,33 +3,40 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: var(--bg-color-ground);
 }
 
 /* SEPARATOR */
 .separator {
   height: 15px;
   background-image: url("../images/ground-separator.svg");
+  position: relative;
+  top: -8px;
 }
 
 /* PANEL */
 .panel {
   min-width: 250px;
+  max-width: 650px;
+  margin: auto;
   width: 100%;
   background-color: var(--bg-color-ground);
   padding: 1em;
+  padding-top: .25em;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
 }
 .panel h2 {
   color: var(--white);
+  font-size: 1.2em;
 }
 
 /* BUTTON */
 .evolution {
   display: flex;
   background-color: var(--white-60);
-  min-height: 65px;
+  min-height: 55px;
   border-radius: var(--radius-15);
   border: 3px solid var(--bg-color-ground);
   position: relative;
@@ -40,7 +47,7 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0.5em 0.85em;
+  padding: 0.5em 0.65em;
   align-items: center;
   width: 100%;
   color: var(--text-color);
@@ -50,10 +57,10 @@ footer {
   top: 0;
 }
 .evolution figure h3 {
-  line-height: var(--panel-h-font-size);
+  line-height: .85em;
   padding-bottom: 0;
-  padding-top: 0.2em;
-  font-size: var(--panel-h-font-size);
+  padding-top: 0.3em;
+  font-size: .85em;
 }
 .evolution figcaption {
   font-size: var(--big-font-light);

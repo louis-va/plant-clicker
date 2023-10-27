@@ -1,6 +1,8 @@
 header {
   position: relative;
   z-index: 5;
+  max-width: 650px;
+  margin: auto;
 }
 
 nav {
@@ -8,7 +10,7 @@ nav {
   background-color: transparent;
   max-width: 100%;
   justify-content: space-between;
-  padding: 2% 3%;
+  padding: 1em;
   font-size: var(--top-bar-font-size);
 }
 .top-button {
