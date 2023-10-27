@@ -25,3 +25,10 @@ nav {
 h4 {
   padding-left: 0.4rem;
 }
+@media screen and (min-width: 901px) {
+  /*landscape tabs, mini laptops */
+  nav {
+    max-width: 900px;
+    margin: auto;
+  }
+}
