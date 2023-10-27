@@ -2,22 +2,21 @@
   display: none;
   background-color: var(--white);
   position: absolute;
-  min-height: 40vh;
   width: 90%;
-  top: 5vh;
+  top: 2em;
   left: 50%;
   transform: translate(-50%, 0%);
   z-index: 999;
   border-radius: var(--radius-15);
-  border: var();
-  padding: 2% 5%;
+  padding: 1em 1.5em;
 }
 .modal h2 {
   position: relative;
+  padding-bottom: .25em;
 }
 .modal button {
   position: absolute;
-  top: calc(3% + 0.8vh);
+  top: .25em;
   right: 0;
   cursor: pointer;
   background-color: transparent;
@@ -25,11 +24,10 @@
 }
 .modal ol {
   padding: 0;
-  padding: 2% 3% 2% 9%;
+  padding-left: 1em;
 }
-
-.modal ol li {
-  padding-bottom: 2vh;
+.modal li {
+  padding-bottom: 1em;
   font-size: var(--top-bar-font-size);
   color: var(--text-color-light);
 }
