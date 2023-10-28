@@ -10,11 +10,13 @@
   z-index: 999;
   border-radius: var(--radius-15);
   padding: 1em 1.5em;
+  padding-top: 0;
 }
 .stats h2,
 .modal h2 {
   position: relative;
   padding-bottom: 0.25em;
+  padding-top: .5em;
 }
 .modal {
   max-height: 90vh;
@@ -27,22 +29,26 @@
 }
 .modal-buttons {
   position: absolute;
-  top: 0.25em;
+  top: .75em;
   right: 0;
   cursor: pointer;
   background-color: transparent;
   border: none;
 }
 
-table,
 .modal ol {
-  padding: 0 1em 0em 2em;
+  padding: 0;
+  padding-left: 1.25em;
 }
 
 .modal ol li {
   padding-bottom: 1em;
   font-size: var(--top-bar-font-size);
   color: var(--text-color-light);
+}
+.modal ol li ul {
+  padding: 0;
+  padding-left: 0.5em;
 }
 .modal ol li ul li {
   padding: 0;
@@ -52,15 +58,17 @@ table,
 
 #resetButton {
   background-color: transparent;
-  border: 3px solid transparent;
-  border-radius: var(--radius-15);
-  padding: 0.2em 0.5em;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 0.1em 0.5em;
   cursor: pointer;
+  font-size: .85em;
 }
 #resetButton:hover {
   color: var(--white);
-  background-color: var(--text-color);
-  transition: 0.2s;
+  background-color: rgb(213, 0, 0);
+  border: 2px solid rgb(183, 0, 0);
+  transition: 0.1s;
 }
 #cache {
   position: fixed;

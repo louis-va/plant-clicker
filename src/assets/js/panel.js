@@ -40,6 +40,7 @@ const toCent = "to-cent";
  */
 function handleDOMMutation(mutationsList, observer) {
   const currentValueBank = parseInt(bankElement.textContent);
+  
   const currentValueAutoClickPrice = parseInt(
     document.getElementById("autoClickPrice").textContent
   );
@@ -50,16 +51,19 @@ function handleDOMMutation(mutationsList, observer) {
     document.getElementById("boostPrice").textContent
   );
   const boosted = getBoost();
+
   if (currentValueAutoClickPrice <= currentValueBank) {
     fullPourcent(tamponAutoclicker);
   } else {
     zeroPourcent(tamponAutoclicker);
   }
+
   if (currentValueMultiplier <= currentValueBank) {
     fullPourcent(tamponMultiplier);
   } else {
     zeroPourcent(tamponMultiplier);
   }
+
   if (boosted === true) {
     zeroPourcent(tamponBooster);
     addClass(tamponBooster, toCent);

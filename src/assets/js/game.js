@@ -42,9 +42,7 @@ document.getElementById("resetButton").addEventListener("click", () => {
 // Handle purchases
 function handlePurchase(price, type) {
     if(type=="boost" && currentUser.boost){
-        alert("Already boosted !");
-    }else if (currentUser.bank < price) {
-        alert("You don't have enough points!");
+    } else if (currentUser.bank < price) {
     } else {
         currentUser = setBank(currentUser, -price);
         switch (type) {
@@ -56,7 +54,7 @@ function handlePurchase(price, type) {
                 break;
             case "boost":
                 currentUser = boostON(currentUser);
-                setTimeout(boostOFF, 30000);
+                setTimeout(boostOFF, 15000);
                 break;
         }
         updateUI();
@@ -74,6 +72,7 @@ function updateUI() {
     updateStats();
 }
 
+// Update the UI with current stats
 function updateStats(){
     document.getElementById("scoreTotal").innerHTML=currentUser.score;
     document.getElementById("startDate").innerHTML=currentUser.startDate;
@@ -82,15 +81,18 @@ function updateStats(){
     document.getElementById("scoreAuto").innerHTML=currentUser.scrAuto;
     document.getElementById("nbBoost").innerHTML=currentUser.nbrBoost;
 }
+
 // Create a new user and stock it in localStorage
 function newUser(){
+    let now = new Date();
+    let today = now.getDate() + '/' + now.getMonth() + '/' + now.getFullYear() + ' ' + now.getHours() + ':' + now.getMinutes()
     let user = {
         score: 0,
         bank: 0,
         multiplier: 1,
         autoclick: 0,
         boost: false,
-        startDate: new Date(),
+        startDate: today,
         nbrClick: 0,
         scrClick: 0,
         scrAuto: 0,
@@ -99,6 +101,7 @@ function newUser(){
     localStorage.setItem("user", JSON.stringify(user));
     return user;
 }
+
 // Booster
 function boostON(user){
     user.boost=true;
@@ -114,7 +117,7 @@ function boostOFF() {
 }
 
 // Autoclicker
-setInterval(autoClick, 10000);
+setInterval(autoClick, 1000);
 
 function autoClick() {
     currentUser = setScore(currentUser, getMultiplier() * getAutoClicker(), true);
@@ -177,7 +180,7 @@ function getAutoClickerPrice() {
 }
 
 function getBoostPrice(multiplier){
-    return Math.round(100*multiplier);
+    return Math.round(75*multiplier + 75*getAutoClicker());
 }
 
 // Get value
