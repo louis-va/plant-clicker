@@ -1,26 +1,43 @@
 import { getBoost } from "./game";
 
-function fullPourcent(el) {
-  el.style.width = "100%";
-}
-
-function zeroPourcent(el) {
-  el.style.width = "0%";
-}
-function addClass(el, node) {
-  el.classList.add(node);
-}
-function delClass(el, node) {
-  el.classList.remove(node);
-}
+// Definitions of constants for DOM elements
 const bankElement = document.getElementById("bank");
 const tamponAutoclicker = document.getElementById("tampon-autoclick");
 const tamponMultiplier = document.getElementById("tampon-multiplier");
 const tamponBooster = document.getElementById("tampon-boost");
-const buttonBoost = document.getElementById("purchaseBoost");
-const cligno = "to-cligno";
+
+/**
+ * @param {HTMLElement} el - The DOM element to modify
+ */
+function fullPourcent(el) {
+  el.style.width = "100%";
+}
+/**
+ * @param {HTMLElement} el - The DOM element to modify
+ */
+function zeroPourcent(el) {
+  el.style.width = "0%";
+}
+/**
+ * @param {HTMLElement} el - The DOM element to add the class to
+ * @param {string} className - The name of the class to add
+ */
+function addClass(el, className) {
+  el.classList.add(className);
+}
+/**
+ * @param {HTMLElement} el - The DOM element to remove the class from
+ * @param {string} className - The name of the class to remove
+ */
+function delClass(el, className) {
+  el.classList.remove(className);
+}
+
 const toCent = "to-cent";
-// Fonction pour gérer les mutations du DOM
+/**
+ * @param {MutationRecord[]} mutationsList - The list of observed mutations
+ * @param {MutationObserver} observer - The mutation observer
+ */
 function handleDOMMutation(mutationsList, observer) {
   const currentValueBank = parseInt(bankElement.textContent);
   const currentValueAutoClickPrice = parseInt(
@@ -32,7 +49,7 @@ function handleDOMMutation(mutationsList, observer) {
   const currentValueBooster = parseInt(
     document.getElementById("boostPrice").textContent
   );
-  const boosted=getBoost();
+  const boosted = getBoost();
   if (currentValueAutoClickPrice <= currentValueBank) {
     fullPourcent(tamponAutoclicker);
   } else {
@@ -43,22 +60,22 @@ function handleDOMMutation(mutationsList, observer) {
   } else {
     zeroPourcent(tamponMultiplier);
   }
-  if (boosted===true) {
+  if (boosted === true) {
     zeroPourcent(tamponBooster);
     addClass(tamponBooster, toCent);
   } else if (currentValueBooster <= currentValueBank) {
     fullPourcent(tamponBooster);
-    delClass(tamponBooster,toCent);
+    delClass(tamponBooster, toCent);
   } else {
     zeroPourcent(tamponBooster);
   }
 }
 
-// new instance of class mutation call handleDOMMUation
+// Creates a new instance of the mutation observer and triggers it
 const observer = new MutationObserver(handleDOMMutation);
 
-// Define observer : child check node, substree check edit
+// Observer configuration to monitor changes in the DOM
 const config = { childList: true, subtree: true };
 
-// begin observer from bank
+// Starts the observer from the bank element
 observer.observe(bankElement, config);

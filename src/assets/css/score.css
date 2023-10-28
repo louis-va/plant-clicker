@@ -4,7 +4,7 @@
   left: 50%;
   transform: translate(-50%);
   text-align: center;
-  padding: .15em 1em;
+  padding: 0.15em 1em;
   width: max-content;
   margin: 0 auto;
   border: 4px dashed rgba(114, 89, 51, 0.2);
@@ -34,9 +34,11 @@
 }
 
 .score h2 img {
-  width: .6em;
+  width: 0.6em;
+  height: 0.6em;
+  align-self: center;
 }
 
 #bank {
-  padding-left: .2em;
+  padding-left: 0.2em;
 }

@@ -5,17 +5,33 @@
     <meta name="theme-color" content="#f7fbc8" />
     <link rel="icon" type="image/svg+xml" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Embark on a clicking game where points earned can unlock powerful upgrades like autoclickers, multipliers, and temporary boosts. Enhance point collection and automate clicks to strategically maximize earnings. Reset progress at will, while the game state remains saved for seamless continuity between sessions."
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/Nunito-ExtraBold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+
     <title>Plant Clicker</title>
   </head>
   <body>
     <div id="plant"></div>
     <div id="cache"></div>
-
     <!-- HEADER -->
     <header>
       <nav>
         <!--button pour utiliser aria (accessibilités)-->
-        <button class="top-button" id="button-rules">
+        <button
+          class="top-button"
+          id="button-rules"
+          aria-label="Rules Button"
+          aria-expanded="false"
+        >
           <svg
             width="16"
             height="16"
@@ -30,7 +46,12 @@
           </svg>
           <h4>Rules</h4>
         </button>
-        <button class="top-button" id="button-stats">
+        <button
+          class="top-button"
+          id="button-stats"
+          aria-label="Button shows statistics"
+          aria-expanded="false"
+        >
           <svg
             width="16"
             height="16"
@@ -46,10 +67,20 @@
           <h3>stats</h3>
         </button>
       </nav>
-      <article class="modal" id="article-modal">
+      <article
+        class="modal"
+        id="article-modal"
+        aria-label="statistics open"
+        aria-expanded="true"
+      >
         <h2>
           Rules
-          <button class="modal-buttons" id="croix-rules">
+          <button
+            class="modal-buttons"
+            id="croix-rules"
+            aria-label="exit expended statistics"
+            aria-expanded="true"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24"
@@ -63,22 +94,105 @@
           </button>
         </h2>
         <ol>
-          <li>Lorem ipsum dolor sit amet consectetur.</li>
           <li>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos,
-            mollitia.
+            <h4>Erning points:</h4>
+            <ul>
+              <li>Click on the "plant" to earn points.</li>
+              <li>
+                Each click increases the score and the total number of clicks
+                made.
+              </li>
+            </ul>
           </li>
           <li>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos, quae
-            sapiente consequatur error quas aut!
+            <h4>Points and Currency:</h4>
+            <ul>
+              <li>Points earned are added to the player's total score.</li>
+              <li>
+                The score can be used as a currency to purchase various in-game
+                upgrades.
+              </li>
+            </ul>
           </li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+          <li>
+            <h4>Upgrades</h4>
+            <ul>
+              <li>
+                <em>Autoclicker: </em>Purchase autoclickers to automate the
+                clicking process, earning points automatically over time.
+              </li>
+              <li>
+                <em>Multiplier: </em>Buy multipliers to increase the points
+                earned per click
+              </li>
+              <li>
+                <em>Boost: </em>Boosts temporarily increase the rate of point
+                collection.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h4>Purchases</h4>
+            <ul>
+              <li>
+                Users can buy upgrades based on their available score
+                (currency).
+              </li>
+              <li>
+                Upgrades have different prices and offer various benefits.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h4>Reset</h4>
+            <ul>
+              <li>
+                There is an option to reset the game progress back to the
+                initial state.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h4>Boost and Autoclick:</h4>
+            <ul>
+              <li>
+                The boost feature increases point gains for a limited time.
+              </li>
+              <li>
+                Autoclickers automate the clicking process, steadily earning
+                points.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h4>Progress Update:</h4>
+            <ul>
+              <li>
+                User statistics such as the total score, the number of clicks,
+                and the purchased upgrades are constantly updated on the screen.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h4>Game Persistence:</h4>
+            <ul>
+              <li>
+                Player progress is saved, allowing them to continue from their
+                last point even after closing the game.
+              </li>
+            </ul>
+          </li>
         </ol>
       </article>
       <section id="stat" class="stats">
         <h2>
           Score Overview
-          <button class="modal-buttons" id="croix-stats">
+          <button
+            class="modal-buttons"
+            id="croix-stats"
+            aria-label="exit expended statistics"
+            aria-expanded="true"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24"
@@ -93,27 +207,27 @@
         </h2>
         <table>
           <tr>
-            <td>Score total</td>
+            <td>Total Score</td>
             <td id="scoreTotal">0</td>
           </tr>
           <tr>
-            <td>Start date</td>
+            <td>Start Date</td>
             <td id="startDate">Now</td>
           </tr>
           <tr>
-            <td>Number of clicks</td>
+            <td>Number of Clicks</td>
             <td id="nbClick">0</td>
           </tr>
           <tr>
-            <td>Score click</td>
+            <td>Click Score</td>
             <td id="scoreClick">0</td>
           </tr>
           <tr>
-            <td>Score AutoClick</td>
+            <td>AutoClick Score</td>
             <td id="scoreAuto">0</td>
           </tr>
           <tr>
-            <td>Boost purchased</td>
+            <td>Purchased Boosts</td>
             <td id="nbBoost">0</td>
           </tr>
         </table>
@@ -128,7 +242,11 @@
       <section class="score noselect">
         <figure>
           <h2>
-            <img src="./assets/images/Token.svg" alt="token" />
+            <img
+              loading="lazy"
+              src="./assets/images/Token.svg"
+              alt="Game token for purchasing upgrades"
+            />
             <div id="bank">0</div>
           </h2>
         </figure>
@@ -145,12 +263,16 @@
 
         <!-- AUTO-CLICKER -->
         <button class="evolution" id="purchaseAutoClick">
-          <div class="tampon" style="width: 100%" id="tampon-autoclick"></div>
+          <div class="tampon" id="tampon-autoclick"></div>
           <figure>
             <article class="container-score">
               <h3>Auto-clicker</h3>
               <article class="token-score">
-                <img src="./assets/images/Token.svg" alt="token" />
+                <img
+                  loading="lazy"
+                  src="./assets/images/Token.svg"
+                  alt="Game token for purchasing upgrades"
+                />
                 <p id="autoClickPrice">0</p>
               </article>
             </article>
@@ -163,12 +285,16 @@
 
         <!-- MULTIPLIER -->
         <button class="evolution" id="purchaseMultiplier">
-          <div class="tampon" style="width: 100%" id="tampon-multiplier"></div>
+          <div class="tampon" id="tampon-multiplier"></div>
           <figure>
             <article class="container-score">
               <h3>Multiplier</h3>
               <article class="token-score">
-                <img src="./assets/images/Token.svg" alt="token" />
+                <img
+                  loading="lazy"
+                  src="./assets/images/Token.svg"
+                  alt="Game token for purchasing upgrades"
+                />
                 <p id="multiplierPrice">100</p>
               </article>
             </article>
@@ -179,12 +305,16 @@
 
         <!-- BOOSTER -->
         <button class="evolution" id="purchaseBoost">
-          <div class="tampon" style="width: 100%" id="tampon-boost"></div>
+          <div class="tampon" id="tampon-boost"></div>
           <figure>
             <article class="container-score">
               <h3>Booster</h3>
               <article class="token-score">
-                <img src="./assets/images/Token.svg" alt="token" />
+                <img
+                  loading="lazy"
+                  src="./assets/images/Token.svg"
+                  alt="Game token for purchasing upgrades"
+                />
                 <p id="boostPrice">100</p>
               </article>
             </article>

@@ -25,6 +25,9 @@ nav {
 h4 {
   padding-left: 0.4rem;
 }
+#button-rules {
+  cursor: help;
+}
 @media screen and (min-width: 901px) {
   /*landscape tabs, mini laptops */
   nav {
