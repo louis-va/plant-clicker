@@ -5,10 +5,7 @@ footer {
   width: 100%;
   background-color: var(--bg-color-ground);
 }
-.container-separator {
-  position: relative;
-  height: 0px;
-}
+
 /* SEPARATOR */
 .separator {
   position: absolute;
@@ -31,8 +28,6 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  margin: auto;
-  max-width: 450px;
 }
 
 .panel h2 {
@@ -48,7 +43,6 @@ footer {
   border: 3px solid var(--bg-color-ground);
   position: relative;
   overflow: hidden;
-  max-width: 400px;
 }
 
 .evolution figure {
@@ -123,16 +117,4 @@ footer {
 }
 .to-cligno {
   animation: 1s linear infinite reverse both running clignot;
-  animation-delay: 20s;
-}
-@media screen and (min-width: 901px) {
-  /*landscape tabs, mini laptops */
-  .panel {
-    max-width: 900px;
-    flex-direction: row;
-    align-items: center;
-  }
-  .evolution {
-    flex: 1;
-  }
 }
