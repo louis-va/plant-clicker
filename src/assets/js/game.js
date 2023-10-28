@@ -5,7 +5,7 @@ let currentUser = JSON.parse(localStorage.getItem("user"));
 if (currentUser == null) {
     currentUser = newUser();
 }
-
+boostOFF();
 // Update HTML elements with initial user data
 updateUI();
 
@@ -31,6 +31,12 @@ document.getElementById("purchaseMultiplier").addEventListener("click", () => {
 // Event listener for purchasing boost
 document.getElementById("purchaseBoost").addEventListener("click", () => {
     handlePurchase(getBoostPrice(currentUser.multiplier), "boost");
+});
+
+// Event listener for reset
+document.getElementById("resetButton").addEventListener("click", () => {
+    currentUser=newUser();
+    updateUI();
 });
 
 // Handle purchases

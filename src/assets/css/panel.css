@@ -4,7 +4,6 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: var(--bg-color-ground);
-
 }
 
 /* SEPARATOR */
@@ -25,7 +24,7 @@ footer {
   margin: auto;
   width: 100%;
   padding: 1em;
-  padding-top: .25em;
+  padding-top: 0.25em;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -61,10 +60,10 @@ footer {
   top: 0;
 }
 .evolution figure h3 {
-  line-height: .85em;
+  line-height: 0.85em;
   padding-bottom: 0;
   padding-top: 0.3em;
-  font-size: .85em;
+  font-size: 0.85em;
 }
 .evolution figcaption {
   font-size: var(--big-font-light);
@@ -83,6 +82,7 @@ footer {
 }
 .token-score img {
   height: 0.87em;
+  width: auto;
 }
 
 /* TAMPON */

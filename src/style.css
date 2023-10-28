@@ -13,6 +13,7 @@
   src: url("./assets/fonts/Nunito-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -26,18 +27,10 @@ body {
   overflow: hidden;
 }
 
-/* tools */
-@media screen and (min-width: 601px) and (max-width: 900px) {
-  /*phones */
-}
-@media screen and (min-width: 901px) and (max-width: 1199px) {
-  /*landscape tabs, mini laptops */
-}
-
-@media screen and (min-width: 1200px) and (max-width: 1799px) {
-  /* laptops ddesktops */
-}
-
-@media screen and (min-width: 1800px) {
-  /*XL*/
+#dom-loader {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  z-index: 6;
 }

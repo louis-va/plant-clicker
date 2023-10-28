@@ -14,26 +14,53 @@
 .stats h2,
 .modal h2 {
   position: relative;
-  padding-bottom: .25em;
+  padding-bottom: 0.25em;
 }
-.stats button,
-.modal button {
+.modal {
+  max-height: 90vh;
+  overflow: auto;
+}
+.modal h2 {
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+}
+.modal-buttons {
   position: absolute;
-  top: .25em;
+  top: 0.25em;
   right: 0;
   cursor: pointer;
   background-color: transparent;
   border: none;
 }
+
 table,
 .modal ol {
-  padding: 0;
-  padding-left: 1em;
+  padding: 0 1em 0em 2em;
 }
-.modal li {
+
+.modal ol li {
   padding-bottom: 1em;
   font-size: var(--top-bar-font-size);
   color: var(--text-color-light);
+}
+.modal ol li ul li {
+  padding: 0;
+  padding-bottom: 0.2em;
+  font-size: var(--score-panel);
+}
+
+#resetButton {
+  background-color: transparent;
+  border: 3px solid transparent;
+  border-radius: var(--radius-15);
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+}
+#resetButton:hover {
+  color: var(--white);
+  background-color: var(--text-color);
+  transition: 0.2s;
 }
 #cache {
   position: fixed;
@@ -51,7 +78,26 @@ table {
   width: 100%;
   font-size: var(--top-bar-font-size);
   color: var(--text-color-light);
+  font-size: var(--score-panel);
 }
+table tr {
+  display: flex;
+  flex-direction: column;
+}
+table td:nth-child(1) {
+  border-bottom: 1px solid var(--text-color);
+}
+
 table td:nth-child(2) {
   text-align: end;
+  color: var(--text-color);
+  padding: 0.5em 0em 0.6em 0em;
+}
+@media screen and (min-width: 901px) {
+  /*landscape tabs, mini laptops */
+  .modal,
+  .stats {
+    max-width: 500px;
+    padding: 1% 2.5%;
+  }
 }
