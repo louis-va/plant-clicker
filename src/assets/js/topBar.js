@@ -6,30 +6,32 @@ const croixStats = document.getElementById("croix-stats");
 const cache = document.getElementById("cache");
 const stat = document.getElementById("stat");
 
+/**
+ * Affiche ou masque un élément et l'autre element de la topbar : le rival (le cas échéant)
+ * @param {HTMLElement} el - L'élément à afficher ou masquer
+ * @param {HTMLElement} [rival=null] - L'élément de la à masquer
+ */
 function togle(el, rival) {
-  if (el.style.display === "none" || el.style.display === "") {
-    el.style.display = "block";
-    cache.style.display = "block";
-    if (rival) {
-      rival.style.display = "none";
-    }
-  } else {
-    el.style.display = "none";
-    cache.style.display = "none";
+  const isHidden = el.style.display === "none" || el.style.display === "";
+  el.style.display = isHidden ? "block" : "none";
+  cache.style.display = isHidden ? "block" : "none";
+  if (rival && isHidden) {
+    rival.style.display = "none";
   }
 }
-
-buttonRules.addEventListener("click", () => {
-  togle(articleModal, stat);
-});
-
-croixRules.addEventListener("click", () => {
-  togle(articleModal);
-});
-
-buttonStats.addEventListener("click", () => {
-  togle(stat, articleModal);
-});
-croixStats.addEventListener("click", () => {
-  togle(stat);
-});
+/**
+ * Attache un événement de clic à un élément avec ou sans rival
+ * @param {HTMLElement} element - L'élément sur lequel attacher l'événement de clic
+ * @param {HTMLElement} el - L'élément à afficher ou masquer
+ * @param {HTMLElement} [rival=null] - L'élément rival à masquer
+ */
+function toggleEl(element, el, rival) {
+  element.addEventListener("click", () => {
+    togle(el, rival);
+  });
+}
+// Attachement des événements aux boutons pour afficher ou masquer les éléments associés
+toggleEl(buttonRules, articleModal, stat);
+toggleEl(croixRules, articleModal);
+toggleEl(buttonStats, stat, articleModal);
+toggleEl(croixStats, stat);
