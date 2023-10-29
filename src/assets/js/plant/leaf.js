@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import * as seedrandom from "seedrandom";
+import { seedrandom } from './seedrandom';
 
 const COLOR_GREEN_100 = '0x53621E'
 const COLOR_GREEN_200 = '0x48551E'
