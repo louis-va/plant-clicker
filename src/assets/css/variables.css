@@ -2,8 +2,8 @@
   --bg-gradient: linear-gradient(180deg, #f7fbc8 0%, #f3f0dc 100%);
   --bg-color-ground: #4d3717;
   --bg-beige: rgba(251, 255, 202, 0.6);
-  --text-color: #2d1d07;
-  --text-color-light: #81776a;
+  --text-color: rgb(45, 29, 7);
+  --text-color-light: rgba(45, 29, 7, .6);
   --text-color-info: #7e7c61;
   --modal-overlay: #000000b3;
   --white: #ffffff;
