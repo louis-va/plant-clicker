@@ -2,14 +2,18 @@ import * as PIXI from 'pixi.js';
 import Branch from './branch';
 import { getScore, setSeed, getSeed, setSteps, getSteps } from '../game';
 
+const CANVAS_WIDTH = 1000
+const CANVAS_HEIGHT = 2000
+const CANVAS_ID = 'plant'
+
 class Plant {
   constructor(canvas, x, y) {
     this.canvas = canvas
     this.x = x;
     this.y = y;
 
-    this.builder = new PIXI.Graphics();
-    this.canvas.stage.addChild(this.builder);
+    this.graphics = new PIXI.Graphics();
+    this.canvas.stage.addChild(this.graphics);
 
     this.initializePlant();
     this.previousScore = getScore();
@@ -37,7 +41,7 @@ class Plant {
   }
 
   createPlant(seed) {
-    this.plant = new Branch(this.builder, seed, this.x, this.y, 0);
+    this.plant = new Branch(this.graphics, seed, this.x, this.y, 0, true);
   }
 
   update() {
@@ -45,7 +49,7 @@ class Plant {
 
     if (score > this.previousScore * 1.015) {
       this.plant.grow();
-      this.builder.clear();
+      this.graphics.clear();
       this.plant.render();
       this.previousScore = score;
       this.steps++;
@@ -54,24 +58,24 @@ class Plant {
   }
 
   destroy() {
-    this.builder.clear();
-    this.canvas.stage.removeChild(this.builder);
+    this.graphics.clear();
+    this.canvas.stage.removeChild(this.graphics);
   }
 }
 
 // Initialize the Plant
 const canvas = new PIXI.Application({
-  antialias: false,
-  width: 1000,
-  height: 2000,
+  antialias: true,
+  width: CANVAS_WIDTH,
+  height: CANVAS_HEIGHT,
   backgroundAlpha: 0,
 });
-document.getElementById('plant').appendChild(canvas.view);
+document.getElementById(CANVAS_ID).appendChild(canvas.view);
 
-let plant = new Plant(canvas, 500, 2000);
+let plant = new Plant(canvas, CANVAS_WIDTH/2, CANVAS_HEIGHT);
 
 // New plant when user clicks on reset button
 document.getElementById("resetButton").addEventListener("click", () => {
   plant.destroy()
-  plant = new Plant(canvas, 500, 2000);
+  plant = new Plant(canvas, CANVAS_WIDTH/2, CANVAS_HEIGHT);
 });
