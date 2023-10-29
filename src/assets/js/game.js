@@ -6,6 +6,7 @@ if (currentUser == null) {
     currentUser = newUser();
 }
 boostOFF();
+
 // Update HTML elements with initial user data
 updateUI();
 
@@ -99,6 +100,8 @@ function newUser(){
         nbrBoost: 0
     };
     localStorage.setItem("user", JSON.stringify(user));
+    setSeed(0)
+    setSteps(0)
     return user;
 }
 
@@ -168,6 +171,14 @@ function setBank(user, value){
     return user;
 }
 
+export function setSeed(seed){
+    localStorage.setItem("seed", seed)
+}
+
+export function setSteps(steps){
+    localStorage.setItem("steps", steps)
+}
+
 // Get price
 function getMultiplierPrice() {
     let multiplier = JSON.parse(localStorage.getItem("user")).multiplier;
@@ -202,4 +213,12 @@ export function getAutoClicker(){
 
 export function getBoost(){
     return JSON.parse(localStorage.getItem("user")).boost;
+}
+
+export function getSeed(){
+    return parseInt(localStorage.getItem("seed"))
+}
+
+export function getSteps(){
+    return parseInt(localStorage.getItem("steps"))
 }

@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import * as seedrandom from "seedrandom";
 
 const COLOR_PINK = '0xBB665D'
 const COLOR_YELLOW = '0xD29626'
@@ -6,7 +7,7 @@ const COLOR_GREEN_100 = '0x53621E'
 const COLOR_GREEN_200 = '0x48551E'
 const COLOR_GREEN_300 = '0x374015'
 
-const MAX_LENGTH = 50 // Maximum number of segments in a branch
+const MAX_LENGTH = 30 // Maximum number of segments in a branch
 const SEGMENT_MIN_LENGTH = 15 // Minimum length of a semgent (pixels)
 const SEGMENT_MAX_LENGTH = 30  // Maximum length of a semgent (pixels)
 const SEGMENT_MAX_WIDTH = 15 // Maximum width of a semgent (pixels)
@@ -17,8 +18,9 @@ const BRANCH_MIN_ANGLE = 15 // Minimum angle at which a branch will grow on its 
 const BRANCH_MAX_ANGLE = 35 // Maximum angle at which a branch will grow on its parent branch (degrees)
 
 export default class Branch {
-  constructor(builder, x, y, angle) {
+  constructor(builder, seed, x, y, angle) {
     this._builder = builder
+    this._seed = seed
     this._angle = angle
     this._points = []
     this._addPoint(x, y)
@@ -28,7 +30,10 @@ export default class Branch {
   }
 
   _randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
+    let srng = seedrandom(this._seed)()
+    let randomInt = Math.floor(srng * (max - min) + min);
+    this._seed += 1
+    return randomInt
   }
 
   _addPoint(x, y) {
@@ -51,13 +56,13 @@ export default class Branch {
 
   _addChildBranch(x, y) {
     let angle;
-    if (this._randomInt(0, 1)==1) {
+    if (this._randomInt(0, 10)>5) {
       angle = this._randomInt(this._angle-BRANCH_MAX_ANGLE, this._angle-BRANCH_MIN_ANGLE)
     } else {
       angle = this._randomInt(this._angle+BRANCH_MIN_ANGLE, this._angle+BRANCH_MAX_ANGLE)
     }
 
-    let branch = new Branch(this._builder, x, y, angle)
+    let branch = new Branch(this._builder, this._seed, x, y, angle)
     this._childBranches.push(branch)
   }
 
