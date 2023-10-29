@@ -18,8 +18,8 @@
     />
 
     <title>Plant Clicker</title>
-    <script type="module" crossorigin src="/plant-clicker/assets/index-ee732957.js"></script>
-    <link rel="stylesheet" href="/plant-clicker/assets/index-e1230094.css">
+    <script type="module" crossorigin src="/plant-clicker/assets/index-e83dd1a3.js"></script>
+    <link rel="stylesheet" href="/plant-clicker/assets/index-8bd96d2e.css">
   </head>
   <body>
     <div id="plant"></div>
@@ -95,96 +95,32 @@
             </svg>
           </button>
         </h2>
-        <ol>
-          <li>
-            <h4>Erning points:</h4>
-            <ul>
-              <li>Click on the "plant" to earn points.</li>
-              <li>
-                Each click increases the score and the total number of clicks
-                made.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h4>Points and Currency:</h4>
-            <ul>
-              <li>Points earned are added to the player's total score.</li>
-              <li>
-                The score can be used as a currency to purchase various in-game
-                upgrades.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h4>Upgrades</h4>
-            <ul>
-              <li>
-                <em>Autoclicker: </em>Purchase autoclickers to automate the
-                clicking process, earning points automatically over time.
-              </li>
-              <li>
-                <em>Multiplier: </em>Buy multipliers to increase the points
-                earned per click
-              </li>
-              <li>
-                <em>Boost: </em>Boosts temporarily increase the rate of point
-                collection.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h4>Purchases</h4>
-            <ul>
-              <li>
-                Users can buy upgrades based on their available score
-                (currency).
-              </li>
-              <li>
-                Upgrades have different prices and offer various benefits.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h4>Reset</h4>
-            <ul>
-              <li>
-                There is an option to reset the game progress back to the
-                initial state.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h4>Boost and Autoclick:</h4>
-            <ul>
-              <li>
-                The boost feature increases point gains for a limited time.
-              </li>
-              <li>
-                Autoclickers automate the clicking process, steadily earning
-                points.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h4>Progress Update:</h4>
-            <ul>
-              <li>
-                User statistics such as the total score, the number of clicks,
-                and the purchased upgrades are constantly updated on the screen.
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h4>Game Persistence:</h4>
-            <ul>
-              <li>
-                Player progress is saved, allowing them to continue from their
-                last point even after closing the game.
-              </li>
-            </ul>
-          </li>
-        </ol>
+
+        <div class="rules">
+          <h4>Grow the plant</h4>
+          <p>The goal of the game is to grow a plant by clicking on the screen.</p>
+          <p>Each plant is unique. Start new games to see what kind of plant you will get.</p>
+
+          <h4>Tokens</h4>
+          <p>Each time you click on the screen, you will gain some tokens. These tokens can be used to purchase upgrades.</p>
+
+          <h4>Upgrades</h4>
+          <p>There are 3 upgrades you can buy:</p>
+          <ul>
+            <li>
+              <em>Auto-clicker:</em> automatically clicks on the screen every second.
+            </li>
+            <li>
+              <em>Multiplier:</em> increase the number of tokens earned.
+            </li>
+            <li>
+              <em>Booster:</em> increase the number of token earned by 3 for 15 seconds.
+            </li>
+          </ul>
+
+          <h4>Save</h4>
+          <p>Your progress is saved automatically. Go to the <em>Stats</em> tab to start a new game.</p>
+        </div>
       </article>
       <section id="stat" class="stats">
         <h2>
@@ -213,10 +149,6 @@
             <td id="scoreTotal">0</td>
           </tr>
           <tr>
-            <td>Start Date</td>
-            <td id="startDate">Now</td>
-          </tr>
-          <tr>
             <td>Number of Clicks</td>
             <td id="nbClick">0</td>
           </tr>
@@ -231,6 +163,10 @@
           <tr>
             <td>Purchased Boosts</td>
             <td id="nbBoost">0</td>
+          </tr>
+          <tr>
+            <td>Start Date</td>
+            <td id="startDate">Now</td>
           </tr>
         </table>
         <button id="resetButton">Reset the game</button>
