@@ -86,7 +86,8 @@ function updateStats(){
 // Create a new user and stock it in localStorage
 function newUser(){
     let now = new Date();
-    let today = now.getDate() + '/' + now.getMonth() + '/' + now.getFullYear() + ' ' + now.getHours() + ':' + now.getMinutes()
+    let today = now.getDate() + '/' + now.getMonth() + '/' + now.getFullYear() + ' ' + now.getHours() + ':'
+    today = (now.getMinutes() <10) ? today + '0'+now.getMinutes() : today + now.getMinutes()
     let user = {
         score: 0,
         bank: 0,
