@@ -35,3 +35,9 @@ toggleEl(buttonRules, articleModal, stat);
 toggleEl(croixRules, articleModal);
 toggleEl(buttonStats, stat, articleModal);
 toggleEl(croixStats, stat);
+
+
+// Event listener for reset
+document.getElementById("resetButton").addEventListener("click", () => {
+  togle(stat);
+});
