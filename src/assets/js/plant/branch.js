@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
-import { seedrandom } from './seedrandom';
 import Leaf from './leaf';
+import seedrandom from 'seedrandom';
 
 const COLOR_STEM = '0xBB665D'
 

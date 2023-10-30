@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import { seedrandom } from './seedrandom';
+import seedrandom from 'seedrandom';
 
 const COLOR_GREEN_100 = '0x53621E'
 const COLOR_GREEN_200 = '0x48551E'
@@ -53,8 +53,6 @@ export default class Leaf {
     this.coordinates.curveTopY = this.y-this.randomInt(3,7)
     this.coordinates.curveBottomX = (this.direction=='right') ? this.x+this.randomInt(0,7) : this.x-this.randomInt(0,7)
     this.coordinates.curveBottomY = this.y+this.randomInt(3,7)
-
-    console.log(this.coordinates)
   }
 
   grow() {
