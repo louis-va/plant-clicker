@@ -65,7 +65,7 @@ class Plant {
 
 // Initialize the Plant
 const canvas = new PIXI.Application({
-  antialias: true,
+  antialias: false,
   width: CANVAS_WIDTH,
   height: CANVAS_HEIGHT,
   backgroundAlpha: 0,
