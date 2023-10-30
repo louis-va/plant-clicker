@@ -4,7 +4,7 @@ import seedrandom from 'seedrandom';
 
 const COLOR_STEM = '0xBB665D'
 
-const MAX_LENGTH = 30 // Maximum number of segments in a branch
+const MAX_LENGTH = 40 // Maximum number of segments in a branch
 const SEGMENT_MIN_LENGTH = 15 // Minimum length of a semgent (pixels)
 const SEGMENT_MAX_LENGTH = 30  // Maximum length of a semgent (pixels)
 const SEGMENT_MAX_WIDTH = 15 // Maximum width of a semgent (pixels)

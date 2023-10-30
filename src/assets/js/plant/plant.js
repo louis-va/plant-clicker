@@ -47,7 +47,7 @@ class Plant {
   update() {
     const score = getScore();
 
-    if (score > this.previousScore * 1.015) {
+    if (score > this.previousScore * 1.02) {
       this.plant.grow();
       this.graphics.clear();
       this.plant.render();
