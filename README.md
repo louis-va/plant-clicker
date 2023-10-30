@@ -16,7 +16,7 @@ The primary goal of this project is to use pure JavaScript to collaborate effect
 
 ## Tech Stack
 
-**Front-End:** JS, HTML5, CSS, Pixi.js, seedrandom
+**Front-End:** JS, HTML, CSS, [Pixi.js](https://pixijs.com/), [seedrandom](https://github.com/davidbau/seedrandom)
 
 **Back-End:** JS, JSON
 
@@ -24,9 +24,9 @@ The primary goal of this project is to use pure JavaScript to collaborate effect
 
 ## Authors and Team Roles
 
-- [@Louis Van Aken (Project Manager - Repository Manager - Designer - Front-End Developper)](https://www.github.com/louis-va)
-- [@Matthieu Gravy (Front-End Developper - Readme Maintainer)](https://www.github.com/matthieuGravy)
-- [@Célestin Sivixay (Back-End Developper)](https://www.github.com/Yaeshin)
+- [@Louis Van Aken](https://www.github.com/louis-va) Project Manager - Repository Manager - Designer - Front-End Developper
+- [@Matthieu Gravy](https://www.github.com/matthieuGravy) Front-End Developper - Readme Maintainer
+- [@Célestin Sivixay](https://www.github.com/Yaeshin) Back-End Developper
 
 ## Roadmap
 
