@@ -11,7 +11,7 @@ const SEGMENT_MAX_WIDTH = 15 // Maximum width of a semgent (pixels)
 const SEGMENT_MAX_OFFSET = 5 // Maximum angle offset from previous segment (degrees)
 const GROWTH_STEPS = 10 // Number of rendering loops it takes to draw a segment
 const BRANCH_APPEARANCE = 7 // Number of segments between new branches
-const LEAF_APPEARANCE = 15 // Maximum number of steps between 2 leaves
+const LEAF_APPEARANCE = 8 // Maximum number of steps between 2 leaves
 const BRANCH_MIN_ANGLE = 15 // Minimum angle at which a branch will grow on its parent branch (degrees)
 const BRANCH_MAX_ANGLE = 35 // Maximum angle at which a branch will grow on its parent branch (degrees)
 
@@ -87,7 +87,7 @@ export default class Branch {
         this.addChildBranch(this.growingSegment.point.x, this.growingSegment.point.y)
     }
 
-    if (this.randomInt(1, LEAF_APPEARANCE) == 1 && !this.mainBranch) {
+    if (this.randomInt(1, LEAF_APPEARANCE) == 1 && !this.mainBranch && this.points.length > 5) {
       this.addLeaf(this.growingSegment.point.x, this.growingSegment.point.y)
     }
 

@@ -27,7 +27,7 @@ export default class Leaf {
     this.color = this.selectColor()
     this.direction = (this.randomInt(0, 10)<5) ? 'left' : 'right'
     this.growth = 0
-    this.maxGrowth = this.randomInt(3,30)
+    this.maxGrowth = this.randomInt(5,17)
     this.createLeaf()
   }
 
@@ -48,16 +48,16 @@ export default class Leaf {
     this.coordinates.startX = this.x
     this.coordinates.startY = this.y
     this.coordinates.endX = (this.direction=='right') ? this.x+this.randomInt(7,15) : this.x-this.randomInt(7,15)
-    this.coordinates.endY = this.y+this.randomInt(-5,5)
-    this.coordinates.curveTopX = (this.direction=='right') ? this.x+this.randomInt(0,7) : this.x-this.randomInt(0,7)
+    this.coordinates.endY = this.y+this.randomInt(-10,10)
+    this.coordinates.curveTopX = (this.direction=='right') ? this.x+this.randomInt(0,10) : this.x-this.randomInt(0,10)
     this.coordinates.curveTopY = this.y-this.randomInt(3,7)
-    this.coordinates.curveBottomX = (this.direction=='right') ? this.x+this.randomInt(0,7) : this.x-this.randomInt(0,7)
+    this.coordinates.curveBottomX = (this.direction=='right') ? this.x+this.randomInt(0,10) : this.x-this.randomInt(0,10)
     this.coordinates.curveBottomY = this.y+this.randomInt(3,7)
   }
 
   grow() {
     if (this.growth < this.maxGrowth && this.randomInt(1,5)==1) {
-      this.coordinates.endX += (this.direction=='right') ? this.randomInt(1,2) : this.randomInt(-2,-1)
+      this.coordinates.endX += (this.direction=='right') ? this.randomInt(1,3) : this.randomInt(-3,-1)
       this.coordinates.endY += this.randomInt(-1,1)
       this.coordinates.curveTopX += (this.direction=='right') ? this.randomInt(0,1) : this.randomInt(-1,0)
       this.coordinates.curveTopY += this.randomInt(1,2)
