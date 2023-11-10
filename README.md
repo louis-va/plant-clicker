@@ -18,33 +18,32 @@ The primary goal of this project is to use pure JavaScript to collaborate effect
 
 **Front-End:** JS, HTML, CSS, [Pixi.js](https://pixijs.com/), [seedrandom](https://github.com/davidbau/seedrandom)
 
-**Back-End:** JS, JSON
-
 **Development Tools** : Vite, Prettier, ESLint
 
-## Authors and Team Roles
+<!-- GETTING STARTED -->
+# Getting Started
 
-- [@Louis Van Aken](https://www.github.com/louis-va) Project Manager - Repository Manager - Designer - Front-End Developper
-- [@Matthieu Gravy](https://www.github.com/matthieuGravy) Front-End Developper - Readme Maintainer
-- [@Célestin Sivixay](https://www.github.com/Yaeshin) Back-End Developper
+## Prerequisites
 
-## Roadmap
+You need to have node and npm installed on your machine to run this project locally.  
 
-**Deadline**: 30/10/23 09 AM
-
-## How to Use?
-
-Install from `npm` or `yarn`
-
-### Clone Locally
-
-```bash
->  git clone git@github.com:louis-va/plant-clicker.git
+### npm
+```sh
+npm install npm@latest -g
 ```
 
-### Install with npm
+## Installation
 
-```bash
->  npm install
->  npm run dev
+### 1. Clone the repo
+```sh
+git clone git@github.com:louis-va/restaurant-css-framework.git
+```
+### 2. Install NPM packages
+```sh
+npm install
+```
+
+## Execution 
+```sh
+npm run dev
 ```
